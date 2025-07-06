@@ -1,11 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Complaints</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    #filters {
+      max-width: 950px;
+      margin: 0 auto 30px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    #filters select,
+    #filters input[type="date"],
+    #filters input[type="text"] {
+      padding: 8px 12px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 150px;
+    }
+
+    #adminComplaints {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .complaint-item {
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+
+    .complaint-item h3 {
+      margin-top: 0;
+      color: #444;
+      font-size: 20px;
+    }
+
+    .complaint-item p {
+      margin: 6px 0;
+      color: #555;
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .remove-btn:hover {
+      background-color: #c82333;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    hr {
+      margin-top: 15px;
+      border: none;
+      border-top: 1px solid #eee;
+    }
+  </style>
+
+  <!-- Include jsPDF -->
+  
 </head>
 <body>
-    
+  <h1>Admin Complaint Dashboard</h1>
+
+  <div id="filters">
+    <select id="statusFilter">
+      <option value="">All Statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Resolved">Resolved</option>
+    </select>
+
+    <select id="attachmentFilter">
+      <option value="">All Attachments</option>
+      <option value="yes">Has Attachment</option>
+      <option value="no">No Attachment</option>
+    </select>
+
+    <input type="date" id="fromDate" />
+    <input type="date" id="toDate" />
+    <input type="text" id="mobileFilter" placeholder="Search by Mobile Number" />
+  </div>
+
+  <div id="adminComplaints"></div>
+
+  <script src="../admin.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 </body>
 </html>

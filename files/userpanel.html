@@ -14,37 +14,75 @@
   <body>
     <h1>Complaint Box</h1>
     <div class="container">
-      <a href="files/userpanel.html" class="user">
-        <div class="user">
-          <i class="fa-solid fa-plus"></i>
-          <p>Log Request</p>
-        </div>
-      </a>
-      <a href="files/login.html" class="user">
-        <div class="admin">
-          <i class="fa-solid fa-list"></i>
-          <p>Complaint Status</p>
-        </div>
-      </a>
+      <a class="user" onclick="openpanel('panel-complaint')">
+  <div class="user">
+    <i class="fa-solid fa-plus"></i>
+    <p>Log Request</p>
+  </div>
+</a>
+
+<a class="user" onclick="openpanel('panel-status')">
+  <div class="admin">
+    <i class="fa-solid fa-list"></i>
+    <p>Complaint Status</p>
+  </div>
+</a>
+
     </div>
 
-    <div class="new-complaint">
-      <i class="fa-solid fa-xmark close-icon"></i>
+    <div class="new-complaint" id="panel-complaint"> 
+<i class="fa-solid fa-xmark close-icon" onclick="closepanel('panel-complaint')"></i>
 
       <h2>Submit a Complaint</h2>
 
       <form id="complaintForm">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="number" name="mobile" placeholder="Mobile Number" required />
-  <input type="text" name="address" placeholder="Your Address" required />
-  <input type="email" name="email" placeholder="Email Address" required />
-  <textarea name="complaint" placeholder="Enter your complaint..." rows="5" required></textarea>
-  <input type="file" name="attachment" id="fileUpload" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" />
-  <button type="submit">Submit Complaint</button>
-</form>
-
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input
+          type="number"
+          name="mobile"
+          placeholder="Mobile Number"
+          required
+        />
+        <input type="text" name="address" placeholder="Your Address" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <textarea
+          name="complaint"
+          placeholder="Enter your complaint..."
+          rows="5"
+          required
+        ></textarea>
+        <input
+          type="file"
+          name="attachment"
+          id="fileUpload"
+          accept=".png,.jpg,.jpeg,.pdf,.doc,.docx"
+        />
+        <button type="submit">Submit Complaint</button>
+      </form>
     </div>
 
+    <div class="old-complaint" id="panel-status">
+<i class="fa-solid fa-xmark close-icon" onclick="closepanel('panel-status')"></i>
+
+  <h2>Check Complaint Status</h2>
+
+  <form id="statusForm">
+    <input
+      type="number"
+      name="mobileSearch"
+      placeholder="Enter your Mobile Number"
+      required
+    />
+    <button type="submit">Fetch Complaints</button>
+  </form>
+
+  <div class="complaint-results" id="complaintResults">
+    <!-- Results will be injected here dynamically -->
+  </div>
+</div>
+
+
     <script src="../complaintscript.js"></script>
+    
   </body>
 </html>
