@@ -1,6 +1,7 @@
-
-  // === STORE NEW COMPLAINT ===
-  document.getElementById("complaintForm").addEventListener("submit", function (e) {
+// === STORE NEW COMPLAINT ===
+document
+  .getElementById("complaintForm")
+  .addEventListener("submit", function (e) {
     e.preventDefault(); // Prevent form submission
 
     const name = this.name.value.trim();
@@ -41,28 +42,29 @@
     }
   });
 
-  // === FETCH COMPLAINTS BY MOBILE ===
-  document.getElementById("statusForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+// === FETCH COMPLAINTS BY MOBILE ===
+document.getElementById("statusForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    const mobile = this.mobileSearch.value.trim();
-    const resultsContainer = document.getElementById("complaintResults");
+  const mobile = this.mobileSearch.value.trim();
+  const resultsContainer = document.getElementById("complaintResults");
 
-    resultsContainer.innerHTML = ""; // Clear old results
+  resultsContainer.innerHTML = ""; // Clear old results
 
-    const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
+  const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
 
-    const matching = complaints.filter(c => c.mobile === mobile);
+  const matching = complaints.filter((c) => c.mobile === mobile);
 
-    if (matching.length === 0) {
-      resultsContainer.innerHTML = "<p>No complaints found for this mobile number.</p>";
-      return;
-    }
+  if (matching.length === 0) {
+    resultsContainer.innerHTML =
+      "<p>No complaints found for this mobile number.</p>";
+    return;
+  }
 
-    matching.forEach((c, i) => {
-      const div = document.createElement("div");
-      div.className = "complaint-item";
-      div.innerHTML = `
+  matching.forEach((c, i) => {
+    const div = document.createElement("div");
+    div.className = "complaint-item";
+    div.innerHTML = `
         <h3>Complaint #${i + 1}</h3>
         <p><strong>Date:</strong> ${c.timestamp}</p>
         <p><strong>Name:</strong> ${c.name}</p>
@@ -70,23 +72,26 @@
         <p><strong>Email:</strong> ${c.email}</p>
         <p><strong>Status:</strong> ${c.status}</p>
         <p><strong>Complaint:</strong> ${c.complaint}</p>
-        ${c.file ? `<a href="${c.file}" target="_blank">View Attachment</a>` : ""}
+        ${
+          c.file
+            ? `<a href="${c.file}" target="_blank">View Attachment</a>`
+            : ""
+        }
         <hr/>
       `;
-      resultsContainer.appendChild(div);
-    });
-
-    this.reset(); // Clear input
+    resultsContainer.appendChild(div);
   });
 
-    function closepanel(panel) {
+  this.reset(); // Clear input
+});
+
+function closepanel(panel) {
   document.getElementById(panel).style.display = "none";
 }
 
 function openpanel(panel) {
   document.getElementById(panel).style.display = "block";
 }
-
 
 function loadComplaintsForAdmin() {
   const container = document.getElementById("adminComplaints");
@@ -114,9 +119,15 @@ function loadComplaintsForAdmin() {
       ${c.file ? `<a href="${c.file}" target="_blank">View Attachment</a>` : ""}
       <p><strong>Status:</strong> 
         <select data-id="${c.id}" onchange="updateStatus(this)">
-          <option value="Pending" ${c.status === "Pending" ? "selected" : ""}>Pending</option>
-          <option value="In Progress" ${c.status === "In Progress" ? "selected" : ""}>In Progress</option>
-          <option value="Resolved" ${c.status === "Resolved" ? "selected" : ""}>Resolved</option>
+          <option value="Pending" ${
+            c.status === "Pending" ? "selected" : ""
+          }>Pending</option>
+          <option value="In Progress" ${
+            c.status === "In Progress" ? "selected" : ""
+          }>In Progress</option>
+          <option value="Resolved" ${
+            c.status === "Resolved" ? "selected" : ""
+          }>Resolved</option>
         </select>
       </p>
     `;
@@ -130,7 +141,7 @@ function updateStatus(selectElement) {
   const newStatus = selectElement.value;
 
   const complaints = JSON.parse(localStorage.getItem("complaints")) || [];
-  const index = complaints.findIndex(c => c.id === complaintId);
+  const index = complaints.findIndex((c) => c.id === complaintId);
 
   if (index !== -1) {
     complaints[index].status = newStatus;

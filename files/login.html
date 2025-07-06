@@ -20,25 +20,20 @@
       <a href="adminpanel.html" class="lsbutton">Login</a>
     </div>
 
-
     <script>
-        const name = "admin";
-        const password = "admin";
+      const name = "admin";
+      const password = "admin";
 
-        function checkuser(){
-            const user = document.getElementById('username');
-            const userpass = document.getElementById('pass');
-            const log = document.getElementById('login');
-            if(user.value.trim() == name && userpass.value.trim() == password){
-                log.href = "adminpanel.html"; 
-            }
-            else{
-                alert("wrong id or password");
-            }
-
-            
+      function checkuser() {
+        const user = document.getElementById("username");
+        const userpass = document.getElementById("pass");
+        const log = document.getElementById("login");
+        if (user.value.trim() == name && userpass.value.trim() == password) {
+          log.href = "adminpanel.html";
+        } else {
+          alert("wrong id or password");
         }
-
+      }
     </script>
   </body>
 </html>

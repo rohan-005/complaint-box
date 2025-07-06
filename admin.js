@@ -54,8 +54,12 @@ function renderComplaints() {
 
       <label><strong>Change Status:</strong></label>
       <select onchange="changeStatus(${index}, this.value)">
-        <option value="Pending" ${complaint.status === "Pending" ? "selected" : ""}>Pending</option>
-        <option value="Resolved" ${complaint.status === "Resolved" ? "selected" : ""}>Resolved</option>
+        <option value="Pending" ${
+          complaint.status === "Pending" ? "selected" : ""
+        }>Pending</option>
+        <option value="Resolved" ${
+          complaint.status === "Resolved" ? "selected" : ""
+        }>Resolved</option>
       </select>
 
       <button class="remove-btn" onclick="removeComplaint(${index})">Remove</button>
@@ -99,11 +103,11 @@ async function downloadPDF(index) {
     `Date: ${complaint.timestamp || "N/A"}`,
     `Status: ${complaint.status}`,
     `Description: ${complaint.complaint || "N/A"}`,
-    `Attachment: ${complaint.file ? "Attached" : "None"}`
+    `Attachment: ${complaint.file ? "Attached" : "None"}`,
   ];
 
   let y = 30;
-  lines.forEach(line => {
+  lines.forEach((line) => {
     doc.text(line, 20, y);
     y += 10;
   });

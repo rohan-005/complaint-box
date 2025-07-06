@@ -115,14 +115,13 @@ body {
   background: #008ecc;
 }
 
-
 .old-complaint {
   position: fixed;
   top: 30vh;
   left: 50%;
   transform: translateX(-50%);
   max-width: 600px;
-  padding: 2rem ;
+  padding: 2rem;
   padding-right: 50px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.15);

@@ -64,7 +64,9 @@ function addComplaint() {
 
 function displayComplaints() {
   const user = localStorage.getItem("loggedInUser");
-  const complaints = getComplaints(user).sort((a, b) => b.severity - a.severity);
+  const complaints = getComplaints(user).sort(
+    (a, b) => b.severity - a.severity
+  );
   const list = document.getElementById("complaintList");
   list.innerHTML = "";
 
