@@ -1,0 +1,135 @@
+body {
+  background: linear-gradient(
+    90deg,
+    hsla(205, 46%, 10%, 1) 0%,
+    hsla(191, 28%, 23%, 1) 50%,
+    hsla(207, 41%, 27%, 1) 100%
+  );
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
+  /* display: flex;
+  align-items: center;
+  justify-content: space-evenly; */
+}
+
+h1 {
+  text-align: center;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(3, 84, 155, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeSlideIn 0.6s ease-out;
+}
+
+.container {
+  /* height: 100vh; */
+  margin-bottom: 15vh;
+  display: flex;
+  margin-top: 10vh;
+  justify-content: space-evenly;
+  z-index: 1;
+}
+
+.user,
+.admin {
+  height: 20vh;
+  width: 10vw;
+  padding: 5px;
+  background: rgba(5, 124, 208, 0.2); /* glassy background */
+  border: 2px solid rgba(68, 70, 71, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 30px;
+  color: aliceblue;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.user i,
+.admin i {
+  font-size: 70px;
+  color: black;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-top: 20px;
+}
+
+.user:hover,
+.admin:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  background: rgba(2, 49, 83, 0.3);
+}
+
+.user:hover i,
+.admin:hover i {
+  transform: scale(1.2) rotate(5deg);
+  color: #007bff;
+}
+
+.instructions {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  animation: fadeSlideIn 0.6s ease-out;
+}
+
+.instructions h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.instructions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.instructions li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.instructions li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #00e6e6;
+  font-weight: bold;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

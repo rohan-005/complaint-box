@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User-Complaint Box</title>
+    <link rel="stylesheet" href="css/complaintsection.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1>Complaint Box</h1>
+    <div class="container">
+      <a href="files/userpanel.html" class="user">
+        <div class="user">
+          <i class="fa-solid fa-plus"></i>
+          <p>Log Request</p>
+        </div>
+      </a>
+      <a href="files/login.html" class="user">
+        <div class="admin">
+          <i class="fa-solid fa-list"></i>
+          <p>Complaint Status</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="new-complaint">
+      <i class="fa-solid fa-xmark close-icon"></i>
+
+      <h2>Submit a Complaint</h2>
+
+      <form id="complaintForm">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="number" name="mobile" placeholder="Mobile Number" required />
+  <input type="text" name="address" placeholder="Your Address" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <textarea name="complaint" placeholder="Enter your complaint..." rows="5" required></textarea>
+  <input type="file" name="attachment" id="fileUpload" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" />
+  <button type="submit">Submit Complaint</button>
+</form>
+
+    </div>
+
+    <script src="../complaintscript.js"></script>
+  </body>
+</html>
