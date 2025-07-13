@@ -7,6 +7,7 @@ const attachmentFilter = document.getElementById("attachmentFilter");
 const fromDate = document.getElementById("fromDate");
 const toDate = document.getElementById("toDate");
 const mobileFilter = document.getElementById("mobileFilter");
+const categoryFilter = document.getElementById("categoryFilter"); 
 
 // Function to render complaints
 function renderComplaints() {
@@ -32,7 +33,16 @@ function renderComplaints() {
     const matchesMobile =
       !mobileFilter.value || complaint.mobile.includes(mobileFilter.value);
 
-    return matchesStatus && matchesAttachment && matchesDate && matchesMobile;
+    const matchesCategory =
+      !categoryFilter.value || complaint.category === categoryFilter.value;
+
+    return (
+      matchesStatus &&
+      matchesAttachment &&
+      matchesDate &&
+      matchesMobile &&
+      matchesCategory
+    );
   });
 
   filtered.forEach((complaint, index) => {
@@ -45,6 +55,7 @@ function renderComplaints() {
       <p><strong>Date:</strong> ${complaint.timestamp || "N/A"}</p>
       <p><strong>Status:</strong> ${complaint.status}</p>
       <p><strong>Mobile:</strong> ${complaint.mobile || "N/A"}</p>
+      <p><strong>Category:</strong> ${complaint.category || "N/A"}</p>
       <p><strong>Description:</strong> ${complaint.complaint || "N/A"}</p>
       <p><strong>Attachment:</strong> ${
         complaint.file
@@ -102,6 +113,7 @@ async function downloadPDF(index) {
     `Mobile: ${complaint.mobile || "N/A"}`,
     `Date: ${complaint.timestamp || "N/A"}`,
     `Status: ${complaint.status}`,
+    `Category: ${complaint.category || "N/A"}`,
     `Description: ${complaint.complaint || "N/A"}`,
     `Attachment: ${complaint.file ? "Attached" : "None"}`,
   ];
@@ -116,7 +128,7 @@ async function downloadPDF(index) {
 }
 
 // Filter listeners
-[statusFilter, attachmentFilter, fromDate, toDate, mobileFilter].forEach((el) =>
+[statusFilter, attachmentFilter, fromDate, toDate, mobileFilter, categoryFilter].forEach((el) =>
   el.addEventListener("input", renderComplaints)
 );
 

@@ -9,6 +9,7 @@ document
     const address = this.address.value.trim();
     const email = this.email.value.trim();
     const complaint = this.complaint.value.trim();
+    const category = this.category.value; 
     const fileInput = this.attachment;
     const file = fileInput.files[0];
 
@@ -20,6 +21,7 @@ document
         address,
         email,
         complaint,
+        category,
         file: base64File,
         status: "Pending",
         timestamp: new Date().toLocaleString(),
@@ -116,6 +118,7 @@ function loadComplaintsForAdmin() {
       <p><strong>Address:</strong> ${c.address}</p>
       <p><strong>Email:</strong> ${c.email}</p>
       <p><strong>Complaint:</strong> ${c.complaint}</p>
+      <p><strong>Category:</strong> ${c.category || "N/A"}</p>
       ${c.file ? `<a href="${c.file}" target="_blank">View Attachment</a>` : ""}
       <p><strong>Status:</strong> 
         <select data-id="${c.id}" onchange="updateStatus(this)">

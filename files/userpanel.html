@@ -15,23 +15,25 @@
     <h1>Complaint Box</h1>
     <div class="container">
       <a class="user" onclick="openpanel('panel-complaint')">
-  <div class="user">
-    <i class="fa-solid fa-plus"></i>
-    <p>Log Request</p>
-  </div>
-</a>
+        <div class="user">
+          <i class="fa-solid fa-plus"></i>
+          <p>Log Request</p>
+        </div>
+      </a>
 
-<a class="user" onclick="openpanel('panel-status')">
-  <div class="admin">
-    <i class="fa-solid fa-list"></i>
-    <p>Complaint Status</p>
-  </div>
-</a>
-
+      <a class="user" onclick="openpanel('panel-status')">
+        <div class="admin">
+          <i class="fa-solid fa-list"></i>
+          <p>Complaint Status</p>
+        </div>
+      </a>
     </div>
 
-    <div class="new-complaint" id="panel-complaint"> 
-<i class="fa-solid fa-xmark close-icon" onclick="closepanel('panel-complaint')"></i>
+    <div class="new-complaint" id="panel-complaint">
+      <i
+        class="fa-solid fa-xmark close-icon"
+        onclick="closepanel('panel-complaint')"
+      ></i>
 
       <h2>Submit a Complaint</h2>
 
@@ -45,6 +47,16 @@
         />
         <input type="text" name="address" placeholder="Your Address" required />
         <input type="email" name="email" placeholder="Email Address" required />
+
+        <select name="category" required>
+          <option value="">Select a Category</option>
+          <option value="Billing">Billing</option>
+          <option value="Service Issue">Service Issue</option>
+          <option value="Technical Support">Technical Support</option>
+          <option value="General Inquiry">General Inquiry</option>
+          <option value="Other">Other</option>
+        </select>
+
         <textarea
           name="complaint"
           placeholder="Enter your complaint..."
@@ -62,27 +74,27 @@
     </div>
 
     <div class="old-complaint" id="panel-status">
-<i class="fa-solid fa-xmark close-icon" onclick="closepanel('panel-status')"></i>
+      <i
+        class="fa-solid fa-xmark close-icon"
+        onclick="closepanel('panel-status')"
+      ></i>
 
-  <h2>Check Complaint Status</h2>
+      <h2>Check Complaint Status</h2>
 
-  <form id="statusForm">
-    <input
-      type="number"
-      name="mobileSearch"
-      placeholder="Enter your Mobile Number"
-      required
-    />
-    <button type="submit">Fetch Complaints</button>
-  </form>
+      <form id="statusForm">
+        <input
+          type="number"
+          name="mobileSearch"
+          placeholder="Enter your Mobile Number"
+          required
+        />
+        <button type="submit">Fetch Complaints</button>
+      </form>
 
-  <div class="complaint-results" id="complaintResults">
-    <!-- Results will be injected here dynamically -->
-  </div>
-</div>
-
+      <div class="complaint-results" id="complaintResults">
+        </div>
+    </div>
 
     <script src="../complaintscript.js"></script>
-    
   </body>
 </html>

@@ -100,8 +100,7 @@
       }
     </style>
 
-    <!-- Include jsPDF -->
-  </head>
+    </head>
   <body>
     <h1>Admin Complaint Dashboard</h1>
 
@@ -111,6 +110,15 @@
         <option value="Pending">Pending</option>
         <option value="In Progress">In Progress</option>
         <option value="Resolved">Resolved</option>
+      </select>
+
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="Billing">Billing</option>
+        <option value="Service Issue">Service Issue</option>
+        <option value="Technical Support">Technical Support</option>
+        <option value="General Inquiry">General Inquiry</option>
+        <option value="Other">Other</option>
       </select>
 
       <select id="attachmentFilter">
