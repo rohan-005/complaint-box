@@ -187,3 +187,35 @@ body {
   transform: scale(1.2);
   color: #ff4c4c;
 }
+
+
+.new-complaint select {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Segoe UI", sans-serif;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  appearance: none; /* Removes default OS styles for a cleaner look */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+}
+
+/* Optional: Add a custom dropdown arrow */
+.new-complaint select {
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath fill='white' d='M7 10L0 0h14z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.8rem;
+}
+
+/* Option elements */
+.new-complaint select option {
+  background: #1a2b3c; /* fallback color for options */
+  color: #fff;
+}
